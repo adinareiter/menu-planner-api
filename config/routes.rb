@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   get "/menus" => "menus#index"
   get "/menus/:id" => "menus#show"
   post "/menus" => "menus#create"
+
+  # users
+  post "/users" => "users#create"
 end
