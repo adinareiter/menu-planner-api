@@ -15,11 +15,13 @@ class RecipesController < ApplicationController
       ingredients: params[:ingredients],
       directions: params[:directions],
       time: params[:time],
+      image: params[:image],
     )
-    if @recipe.save?
+    @recipe.save
+    if @recipe.valid?
       render :show
     else
-      render json: { errors: @recipe.status.errors.full_messages }
+      render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -30,8 +32,10 @@ class RecipesController < ApplicationController
       ingredients: params[:ingredients] || @recipe.ingredients,
       directions: params[:directions] || @recipe.directions,
       time: params[:time] || @recipe.time,
+      image: params[:image] || @recipe.image,
     )
-    if @recipe.save?
+    @recipe.save
+    if @recipe.valid?
       render :show
     else
       render json: { errors: @recipe.status.errors.full_messages }
@@ -40,10 +44,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find_by(id: params[:id])
-    if @recipe.delete?
-      render json: { message: "Recipe successfully deleted" }
-    else
-      render json: { errors: @recipe.status.errors.full_messages }
-    end
+    @recipe.destroy
+    render json: { message: "Recipe successfully deleted" }
   end
 end
