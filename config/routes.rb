@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get "/menus/:id" => "menus#show"
   post "/menus" => "menus#create"
 
+  # events
+  get "/events" => "events#index"
+
   # users
   post "/users" => "users#create"
 
