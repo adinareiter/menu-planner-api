@@ -21,4 +21,10 @@ class MenusController < ApplicationController
       render json: { errors: @menu.errors.full_messages }, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @menu = Menu.find_by(id: params[:id])
+    @menu.destroy
+    render json: { message: "Menu successfully deleted" }
+  end
 end

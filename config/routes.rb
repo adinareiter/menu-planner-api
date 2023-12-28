@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   get "/menus" => "menus#index"
   get "/menus/:id" => "menus#show"
   post "/menus" => "menus#create"
+  delete "/menus/:id" => "menus#destroy"
 
   # events
   get "/events" => "events#index"
+  get "/events/:id" => "events#show"
 
   # users
   post "/users" => "users#create"
