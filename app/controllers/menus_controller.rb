@@ -14,7 +14,6 @@ class MenusController < ApplicationController
       recipe_id: params[:recipe_id],
       event_id: params[:event_id],
     )
-    @menu.save
     if @menu.valid?
       render :show
     else
