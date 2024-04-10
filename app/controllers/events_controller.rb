@@ -1,11 +1,13 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user
+
   def index
-    @events = Event.all
+    @events = current_user.events
     render :index
   end
 
   def show
-    @event = Event.find_by(id: params[:id])
+    @event = current_user.events.find_by(id: params[:id])
     render :show
   end
 
@@ -13,6 +15,7 @@ class EventsController < ApplicationController
     @event = Event.create(
       title: params[:title],
       image: params[:image],
+      user_id: current_user.id,
     )
     @event.save
     if @event.valid?
@@ -27,6 +30,7 @@ class EventsController < ApplicationController
     @event.update(
       title: params[:title] || @event.title,
       image: params[:image] || @event.image,
+      user_id: current_user.id,
     )
     @event.save
     if @event.valid?

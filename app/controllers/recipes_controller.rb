@@ -1,11 +1,13 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user
+
   def index
-    @recipes = Recipe.all
+    @recipes = current_user.recipes
     render :index
   end
 
   def show
-    @recipe = Recipe.find_by(id: params[:id])
+    @recipe = current_user.recipes.find_by(id: params[:id])
     render :show
   end
 
@@ -16,6 +18,7 @@ class RecipesController < ApplicationController
       directions: params[:directions],
       time: params[:time],
       image: params[:image],
+      user_id: current_user.id,
     )
     @recipe.save
     if @recipe.valid?
