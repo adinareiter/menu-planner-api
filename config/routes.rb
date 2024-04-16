@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   # users
   get "/users" => "users#index"
+  get "/users/:id" => "users#show"
+  get "/user" => "users#current"
   post "/users" => "users#create"
 
   # sessions
