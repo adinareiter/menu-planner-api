@@ -39,4 +39,9 @@ class EventsController < ApplicationController
       render json: { errors: @event.errors.full_messages }, status: :unprocessable_entity
     end
   end
+  def destroy
+    @event = Event.find_by(id: params[:id])
+    @event.destroy
+    render json: { message: "Event successfully deleted" }
+  end
 end
