@@ -77,6 +77,7 @@ The response will contain a `jwt` field, which you should include in subsequent 
 - `DELETE /recipes/:id`: Delete a recipe. Refer to the API documentation for detailed information on each endpoint and their required parameters.
 
 To access events, replace the above endpoints of `/recipes` with `/events`.
+To add a recipe to an event, you can `POST /menus` with the parameters of `recipe_id` and `event_id`.
 
 ## Contributing
 Contributions are welcome! If you have a change to recommend, please submit a pull request.
