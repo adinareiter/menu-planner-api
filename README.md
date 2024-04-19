@@ -53,12 +53,23 @@ The API should now be running locally on http://localhost:3000.
 
 ## Usage
 ### Authentication
-To access protected endpoints, include the JWT token in the Authorization header of your HTTP requests. You can obtain a token by authenticating with the `/sessions` endpoint.
+To access protected endpoints, include the JWT token in the Authorization header of your HTTP requests. You can obtain a token by creating a user with `POST /users` and authenticating with the `/sessions` endpoint.
 
 Example:
 
 ```
 bash
+POST /users
+Content-Type: application/json
+
+{
+  "name": "user"
+  "email": "user@example.com",
+  "password": "securepassword"
+  "password_confirmation": "securepassword"
+}
+```
+```
 POST /sessions
 Content-Type: application/json
 
