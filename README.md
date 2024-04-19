@@ -1,6 +1,6 @@
 # Menu Planner API
 
-Welcome to the Menu Planner API! This Rails backend API allows users to access and manage a database of recipes. The API is secured using JSON Web Tokens (JWT) for authentication, and passwords are hashed using the Bcrypt gem for enhanced security.
+Welcome to the Menu Planner API! This Rails backend API allows users to access and manage a database of recipes and events. The API is secured using JSON Web Tokens (JWT) for authentication, and passwords are hashed using the Bcrypt gem for enhanced security.
 
 ## Table of Contents
 - [Features](https://github.com/adinareiter/menu-planner-api/blob/main/README.md#features)
