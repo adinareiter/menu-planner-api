@@ -16,7 +16,7 @@ Welcome to the Menu Planner API! This Rails backend API allows users to access a
 - User authentication using JWT.
 - Secure password storage with Bcrypt.
 - Access to a comprehensive database of recipes and events.
-- Easy-to-use API endpoints for retrieving, creating, updating, and deleting recipes.
+- Easy-to-use API endpoints for retrieving, creating, updating, and deleting recipes and events.
 
 ## Getting Started
 ### Prerequisites
